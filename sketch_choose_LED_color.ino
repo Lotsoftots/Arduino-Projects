@@ -1,9 +1,10 @@
 String myLED;
-String msg="What color LED do you want turned on? ";
+String msg="What color do want the LED to be? ";
 int Rled=11;
 int Gled=9;
 int Bled=10;
-
+float Cyancolor=150;
+float Orangecolor=150;
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(9600);
@@ -36,4 +37,34 @@ digitalWrite(Rled,HIGH);
 digitalWrite(Gled,LOW);
 }
 
+if (myLED=="cyan" || myLED=="Cyan"){
+ analogWrite(Bled,Cyancolor);
+ analogWrite(Rled,Cyancolor);
+ digitalWrite(Gled,HIGH); 
+}
+if(myLED=="orange" || myLED=="Orange"){
+  digitalWrite(Bled,LOW);
+  analogWrite(Rled,255);
+  analogWrite(Gled,90);
+}
+if(myLED=="yellow" || myLED=="Yellow"){
+  digitalWrite(Bled,LOW);
+  analogWrite(Rled,155);
+  analogWrite(Gled,155);
+}
+if(myLED=="off" || myLED=="Off"){
+  digitalWrite(Bled,LOW);
+  digitalWrite(Rled,LOW);
+  digitalWrite(Gled,LOW);
+}
+if(myLED=="fuchsia" || myLED=="Fuchsia"){
+  analogWrite(Bled,255);
+  analogWrite(Rled,255);
+  digitalWrite(Gled,LOW);
+}
+if (myLED=="all" || myLED=="All"){
+  digitalWrite(Bled,HIGH);
+  digitalWrite(Rled,HIGH);
+  digitalWrite(Gled,HIGH);
+}
  }
